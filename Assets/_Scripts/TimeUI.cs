@@ -11,7 +11,7 @@ using TMPro;
  * 
  * Example Usage:
  * 1. Attach this script to a GameObject such as the canvas in your Unity scene.
- * 2. Drag the "Time" TextMeshPro object from the heirarchy and drop it in the inspector.
+ * 2. Drag the "Time" TextMeshPro object from the hierarchy and drop it in the inspector.
  * 3. Do the same for the "Date" TextMeshPro object.
 **/
 
