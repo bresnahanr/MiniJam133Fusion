@@ -2,24 +2,19 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public static Action OnGameOver;
+
     private void Start()
     {
         GameState.Money = new Resource(ResourceType.Money);
         GameState.Uranium = new Resource(ResourceType.Uranium);
     }
 
-    public void Restart()
+    public void EndGame()
 	{
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        OnGameOver?.Invoke();
 	}
-
-    public void QuitGame()
-	{
-        Debug.Log("Quitting Game");
-        Application.Quit();
-    }
 }
