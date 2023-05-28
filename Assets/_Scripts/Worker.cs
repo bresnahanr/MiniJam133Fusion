@@ -23,12 +23,10 @@ public class Worker : MonoBehaviour
     public void Init()
     {
         var labLocation = GameObject.FindGameObjectWithTag("Lab");
-        print(labLocation);
         switch (type)
         {
             case ResourceType.Uranium:
                 var resourceLocation = GameObject.FindGameObjectWithTag("UraniumBed");
-                print(resourceLocation);
                 movement.SetLocations(labLocation, resourceLocation);
                 break;
             default:
