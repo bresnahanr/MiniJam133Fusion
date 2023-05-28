@@ -1357,7 +1357,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 290030684}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 297306619}
+        m_TargetAssemblyTypeName: ActionBarUI, Assembly-CSharp
+        m_MethodName: HireButtonPressed
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 7559427684114610524, guid: 0f063ef024bc56f41b869aed010b60e8, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &290030684
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1412,6 +1424,7 @@ GameObject:
   - component: {fileID: 297306616}
   - component: {fileID: 297306617}
   - component: {fileID: 297306618}
+  - component: {fileID: 297306619}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1561,6 +1574,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameOverUI: {fileID: 687140249}
   scoreText: {fileID: 1115649679}
+--- !u!114 &297306619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 297306610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24519f996571ce8459a30c62d94cc6fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnLocation: {fileID: 756441592}
+  hireCost: 1000
+  hireRate: 1
 --- !u!1001 &299554412
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2955,6 +2983,37 @@ Transform:
   m_Father: {fileID: 2054539616}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &756441592
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 756441594}
+  m_Layer: 0
+  m_Name: SpawnLocation
+  m_TagString: Untagged
+  m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &756441594
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 756441592}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 18
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &761200238
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3471,14 +3530,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 824982360}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalRotation: {x: 0.48969093, y: -0, z: -0, w: 0.87189615}
+  m_LocalPosition: {x: 0, y: 27, z: -22.59}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 58.641, y: 0, z: 0}
 --- !u!1001 &825788218
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6302,7 +6361,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1463164045}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 297306619}
+        m_TargetAssemblyTypeName: ActionBarUI, Assembly-CSharp
+        m_MethodName: HireButtonPressed
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 192044, guid: 19682540d8a014522a319b1cf788aee2, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1463164045
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6501,7 +6572,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1471684774}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 297306619}
+        m_TargetAssemblyTypeName: ActionBarUI, Assembly-CSharp
+        m_MethodName: HireButtonPressed
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 993509120937154544, guid: 4ab1f6c4172cd534688d8b7d7ee4122a, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1471684774
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9327,8 +9410,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
