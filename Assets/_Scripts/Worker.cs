@@ -6,16 +6,35 @@ using UnityEngine;
 
 public class Worker : MonoBehaviour
 {
-    public static event Action<Location> Embark;
+    public event Action<Location> Embark;
 
     [Header("Worker Stats")]
     [SerializeField] private int baseCollectionAmount;
     [SerializeField] private float collectionModifier;
     [SerializeField] private float collectionTime;
 
+    [SerializeField] private ResourceType type;
+
     private ResourceBag bag = new ResourceBag();
+    private NavMovementController movement;
 
     private bool reachedCheckpoint = true;
+
+    public void Init()
+    {
+        var labLocation = GameObject.FindGameObjectWithTag("Lab");
+        print(labLocation);
+        switch (type)
+        {
+            case ResourceType.Uranium:
+                var resourceLocation = GameObject.FindGameObjectWithTag("UraniumBed");
+                print(resourceLocation);
+                movement.SetLocations(labLocation, resourceLocation);
+                break;
+            default:
+                break;
+        }
+    }
 
     public void PickupResources(ResourceType type)
     {
@@ -45,14 +64,19 @@ public class Worker : MonoBehaviour
     {
         if (bag.Full)
         {
-            Embark?.Invoke(Location.Lab);
+            movement.MoveTo(Location.Lab);
         }
         else
         {
-            Embark?.Invoke(Location.ResourceBed);
+            movement.MoveTo(Location.ResourceBed);
         }
     }
-    
+
+    private void Awake()
+    {
+        movement = GetComponent<NavMovementController>();
+    }
+
     private void Update()
     {
         if (reachedCheckpoint)

@@ -17,8 +17,8 @@ using UnityEngine.AI;
 
 public class NavMovementController : MonoBehaviour
 {
-    public GameObject startLocation;
-    public GameObject endLocation;
+    private GameObject startLocation;
+    private GameObject endLocation;
     public float speed = 3.5f;
 
     private NavMeshAgent agent;
@@ -30,21 +30,26 @@ public class NavMovementController : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
 
         agent.speed = speed;
-        agent.SetDestination(endLocation.transform.position);
-
-        Worker.Embark += MoveTo;
+        // agent.SetDestination(endLocation.transform.position);
+        
     }
 
-    private void MoveTo(Location location)
+    public void MoveTo(Location location)
     {
         if (location == Location.Lab)
         {
             agent.SetDestination(startLocation.transform.position);
         }
-        else
+        else if(location == Location.ResourceBed)
         {
             agent.SetDestination(endLocation.transform.position);
         }
+    }
+    
+    public void SetLocations(GameObject start, GameObject end)
+    {
+        startLocation = start;
+        endLocation = end;
     }
     
     void Update()

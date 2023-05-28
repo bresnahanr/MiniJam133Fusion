@@ -574,8 +574,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 85934419}
-  - component: {fileID: 85934420}
-  - component: {fileID: 85934421}
   m_Layer: 0
   m_Name: HarvestLocation
   m_TagString: Untagged
@@ -598,32 +596,6 @@ Transform:
   m_Father: {fileID: 1198441303}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &85934420
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 85934418}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a896f4dee86bfd4d8157864bc222cbb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  type: 1
---- !u!65 &85934421
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 85934418}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0.48, z: 0}
 --- !u!1001 &122742500
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1387,7 +1359,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 290030684}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 297306619}
+        m_TargetAssemblyTypeName: ActionBarUI, Assembly-CSharp
+        m_MethodName: HireButtonPressed
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: -4628508264679846762, guid: 0f063ef024bc56f41b869aed010b60e8, type: 3}
+          m_ObjectArgumentAssemblyTypeName: Worker, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &290030684
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1442,6 +1426,7 @@ GameObject:
   - component: {fileID: 297306616}
   - component: {fileID: 297306617}
   - component: {fileID: 297306618}
+  - component: {fileID: 297306619}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1591,6 +1576,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameOverUI: {fileID: 687140249}
   scoreText: {fileID: 1115649679}
+--- !u!114 &297306619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 297306610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24519f996571ce8459a30c62d94cc6fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnLocation: {fileID: 756441592}
+  hireCost: 0
+  hireRate: 1
 --- !u!1001 &299554412
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2985,6 +2985,37 @@ Transform:
   m_Father: {fileID: 2054539616}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &756441592
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 756441594}
+  m_Layer: 0
+  m_Name: SpawnLocation
+  m_TagString: Untagged
+  m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &756441594
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 756441592}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 18
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &761200238
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3501,14 +3532,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 824982360}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalRotation: {x: 0.48969093, y: -0, z: -0, w: 0.87189615}
+  m_LocalPosition: {x: 0, y: 27, z: -22.59}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 58.641, y: 0, z: 0}
 --- !u!1001 &825788218
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4712,6 +4743,10 @@ PrefabInstance:
       value: OldKnight
       objectReference: {fileID: 0}
     - target: {fileID: 7559427684114610524, guid: 0f063ef024bc56f41b869aed010b60e8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7559427684114610524, guid: 0f063ef024bc56f41b869aed010b60e8, type: 3}
       propertyPath: m_TagString
       value: Worker
       objectReference: {fileID: 0}
@@ -4734,9 +4769,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c237f24fcc1585f42b41fb99fcd716cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseCollectionAmount: 15
-  collectionModifier: 1
-  collectionTime: 2
+  baseCollectionAmount: 0
+  collectionModifier: 0
+  collectionTime: 0
+  type: 0
 --- !u!195 &1064830951
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -4771,39 +4807,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b3b10d1a3bc3444a8862f84704421cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startLocation: {fileID: 2050552973}
-  endLocation: {fileID: 85934418}
   speed: 3.5
---- !u!136 &1064830957
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1064830948}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2.39
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &1064830958
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1064830948}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1001 &1070072596
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5201,7 +5205,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1163224479}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: UraniumBed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6364,7 +6368,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1463164045}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 297306619}
+        m_TargetAssemblyTypeName: ActionBarUI, Assembly-CSharp
+        m_MethodName: HireButtonPressed
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 192044, guid: 19682540d8a014522a319b1cf788aee2, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1463164045
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6563,7 +6579,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1471684774}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 297306619}
+        m_TargetAssemblyTypeName: ActionBarUI, Assembly-CSharp
+        m_MethodName: HireButtonPressed
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 993509120937154544, guid: 4ab1f6c4172cd534688d8b7d7ee4122a, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1471684774
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9034,9 +9062,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1964106324}
+  - component: {fileID: 1964106326}
+  - component: {fileID: 1964106325}
   m_Layer: 0
   m_Name: HarvestLocation
-  m_TagString: Untagged
+  m_TagString: UraniumBed
   m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9056,6 +9086,32 @@ Transform:
   m_Father: {fileID: 1163224479}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1964106325
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1964106323}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1964106326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1964106323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a896f4dee86bfd4d8157864bc222cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 1
 --- !u!1 &1969465587
 GameObject:
   m_ObjectHideFlags: 0
@@ -9389,8 +9445,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -10274,7 +10330,7 @@ GameObject:
   - component: {fileID: 2050552975}
   m_Layer: 0
   m_Name: DropOffLocation
-  m_TagString: Untagged
+  m_TagString: Lab
   m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10302,11 +10358,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2050552973}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0.52, z: 0}
+  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!114 &2050552976
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10388,7 +10444,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_BuildHeightMesh: 0
-  m_NavMeshData: {fileID: 23800000, guid: 0acadf52ce32dc3459239867e47ac66c, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: c4b603354486b83469393034d76872ed, type: 2}
 --- !u!1001 &2064378918
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -16,7 +16,7 @@ public class ActionBarUI : MonoBehaviour
 
 	private float nextHire = 0f;
 
-	public void HireButtonPressed(GameObject prefab)
+	public void HireButtonPressed(Worker prefab)
 	{
 		if(Time.time < nextHire)
 		{
@@ -24,9 +24,11 @@ public class ActionBarUI : MonoBehaviour
 		}
 
 		//Check funds
-		if (GameState.Money.Subtract(1000))
+		if (GameState.Money.Subtract(hireCost))
 		{
-			Instantiate(prefab, spawnLocation.transform);
+			var workerMovement = Instantiate(prefab, spawnLocation.transform);
+			workerMovement.Init();
+
 			nextHire = Time.time + hireRate;
 		}
 	}
