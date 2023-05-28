@@ -20,14 +20,14 @@ public class ResourceMeters : MonoBehaviour
     //public var levels;
 
     public Slider UraniumSlider;
-    // public Slider WoodSlider;
-    // public Slider WaterSlider;
+    public Slider WoodSlider;
+    public Slider WaterSlider;
 
     // Update is called once per frame
     void Update()
     {
-        UraniumSlider.value = 75f / 100f; // Replace with references to resources
-        // WoodSlider.value = 50 / 100; // Replace with references to resources
-        // WaterSlider.value = 50 / 100; // Replace with references to resources
+        UraniumSlider.value = GameState.UraniumMeter / 100f;
+        WoodSlider.value = GameState.WoodMeter / 100;
+        WaterSlider.value = GameState.WaterMeter / 100;
     }
 }
