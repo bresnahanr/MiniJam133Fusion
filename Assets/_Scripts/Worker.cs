@@ -1,31 +1,34 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 
 public class Worker : MonoBehaviour
 {
-    [Header("Locations")]
-    [SerializeField] private GameObject destination;
-    [SerializeField] private GameObject lab;
+    public static event Action<Location> Embark;
 
     [Header("Worker Stats")]
-    [SerializeField] private float baseCollectionAmount;
+    [SerializeField] private int baseCollectionAmount;
     [SerializeField] private float collectionModifier;
-    
-    [Tooltip("Worker speed in Meters per Second")]
-    [SerializeField] private float speed;
-    
+    [SerializeField] private float collectionTime;
+
     private ResourceBag bag = new ResourceBag();
+
+    private bool reachedCheckpoint = true;
 
     public void PickupResources(ResourceType type)
     {
         bag.ResourceType = type;
         bag.Amount = (int)(baseCollectionAmount * collectionModifier);
+        bag.Full = true;
+        reachedCheckpoint = true;
     }
 
     public void DropoffResources()
     {
+        reachedCheckpoint = true;
+        
         if (bag.ResourceType == ResourceType.Uranium)
         {
             GameState.Uranium.Add(bag.Amount);
@@ -35,27 +38,27 @@ public class Worker : MonoBehaviour
         }
 
         bag.Amount = 0;
+        bag.Full = false;
     }
 
-    private void MoveToResourceBed()
+    private void FinishCollecting()
     {
-        
-    }
-
-    private void MoveToLab()
-    {
-        
-    }
-
-    private void Update()
-    {
-        if (!bag.Full)
+        if (bag.Full)
         {
-            MoveToResourceBed();
+            Embark?.Invoke(Location.Lab);
         }
         else
         {
-            MoveToLab();
+            Embark?.Invoke(Location.ResourceBed);
+        }
+    }
+    
+    private void Update()
+    {
+        if (reachedCheckpoint)
+        {
+            DOVirtual.DelayedCall(collectionTime, FinishCollecting);
+            reachedCheckpoint = false;
         }
     }
 }
@@ -65,4 +68,9 @@ public class ResourceBag
     public bool Full = false;
     public ResourceType ResourceType;
     public int Amount;
+}
+
+public enum Location{
+    Lab,
+    ResourceBed,
 }
