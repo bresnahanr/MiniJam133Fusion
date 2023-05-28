@@ -17,7 +17,7 @@ public class Resource
 
 	private bool CheckFunds(int amount)
     {
-	    return amount >= _currentAmount;
+	    return amount <= _currentAmount;
     }
     
     public void Add(int amount)
