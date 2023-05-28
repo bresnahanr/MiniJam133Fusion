@@ -23,10 +23,7 @@ public class NavMovementController : MonoBehaviour
 
     private NavMeshAgent agent;
     private Animator animator;
-    private workerState currentState;
-    private enum workerState { Fetching, Returning };
 
-    // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -34,41 +31,25 @@ public class NavMovementController : MonoBehaviour
 
         agent.speed = speed;
         agent.SetDestination(endLocation.transform.position);
+
+        Worker.Embark += MoveTo;
     }
 
-    // Update is called once per frame
+    private void MoveTo(Location location)
+    {
+        if (location == Location.Lab)
+        {
+            agent.SetDestination(startLocation.transform.position);
+        }
+        else
+        {
+            agent.SetDestination(endLocation.transform.position);
+        }
+    }
+    
     void Update()
     {
-        // NavAgent handling
-
-        // Is agent not currently pathing and is within stopping distance
-        if(!agent.pathPending && agent.remainingDistance <= agent.stoppingDistance)
-		{
-            // Does agent not have a path set or has stopped moving
-            if(!agent.hasPath || agent.velocity.sqrMagnitude == 0f)
-			{
-				switch (currentState)
-				{
-                    case workerState.Fetching:
-                        agent.SetDestination(startLocation.transform.position);
-                        currentState = workerState.Returning;
-                        break;
-
-                    case workerState.Returning:
-                        agent.SetDestination(endLocation.transform.position);
-                        currentState = workerState.Fetching;
-                        break;
-
-                    default:
-                        break;
-				}
-			}
-		}
-
-        // Animation handling
-
         if (agent.velocity != Vector3.zero)
-            animator.SetFloat("Speed", agent.velocity.sqrMagnitude);       
-
+            animator.SetFloat("Speed", agent.velocity.sqrMagnitude);
     }
 }

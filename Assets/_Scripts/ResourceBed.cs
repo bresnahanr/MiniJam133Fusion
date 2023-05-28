@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class ResourceBed : MonoBehaviour
 {
-    private ResourceType type;
+    [SerializeField] private ResourceType type;
     
     private void OnTriggerEnter(Collider other)
     {

@@ -1,11 +1,12 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     public static Action OnGameOver;
+
+    [SerializeField] private Lab lab;
+    [SerializeField] private ResourceBed uraniumBed;
 
     private void Start()
     {
