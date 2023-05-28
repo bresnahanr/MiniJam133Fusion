@@ -40,4 +40,6 @@ public enum ResourceType
 {
 	Money,
 	Uranium,
+	Wood,
+	Water,
 }

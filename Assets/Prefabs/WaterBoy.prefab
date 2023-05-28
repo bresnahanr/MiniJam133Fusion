@@ -686,7 +686,7 @@ GameObject:
   - component: {fileID: -1051147719987522982}
   - component: {fileID: 8430763133959992215}
   m_Layer: 3
-  m_Name: OldKnight
+  m_Name: WaterBoy
   m_TagString: Worker
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -744,7 +744,7 @@ MonoBehaviour:
   baseCollectionAmount: 15
   collectionModifier: 1
   collectionTime: 2
-  type: 1
+  type: 3
 --- !u!114 &2325418094023070937
 MonoBehaviour:
   m_ObjectHideFlags: 0

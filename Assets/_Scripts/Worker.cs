@@ -23,10 +23,19 @@ public class Worker : MonoBehaviour
     public void Init()
     {
         var labLocation = GameObject.FindGameObjectWithTag("Lab");
+        GameObject resourceLocation;
         switch (type)
         {
             case ResourceType.Uranium:
-                var resourceLocation = GameObject.FindGameObjectWithTag("UraniumBed");
+                resourceLocation = GameObject.FindGameObjectWithTag("UraniumBed");
+                movement.SetLocations(labLocation, resourceLocation);
+                break;
+            case ResourceType.Wood:
+                resourceLocation = GameObject.FindGameObjectWithTag("WoodBed");
+                movement.SetLocations(labLocation, resourceLocation);
+                break;
+            case ResourceType.Water:
+                resourceLocation = GameObject.FindGameObjectWithTag("WaterBed");
                 movement.SetLocations(labLocation, resourceLocation);
                 break;
             default:

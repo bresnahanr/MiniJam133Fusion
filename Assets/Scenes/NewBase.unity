@@ -574,9 +574,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 85934419}
+  - component: {fileID: 85934421}
+  - component: {fileID: 85934420}
   m_Layer: 0
   m_Name: HarvestLocation
-  m_TagString: Untagged
+  m_TagString: WoodBed
   m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -596,6 +598,32 @@ Transform:
   m_Father: {fileID: 1198441303}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &85934420
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 85934418}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0.5, z: 0}
+--- !u!114 &85934421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 85934418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a896f4dee86bfd4d8157864bc222cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 2
 --- !u!1001 &122742500
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -911,8 +939,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7e27d204f6841a498331e09bc3c1152, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lab: {fileID: 0}
-  uraniumBed: {fileID: 0}
+  hourlyIncome: 40
+  uraniumCost: 0
 --- !u!4 &179843571
 Transform:
   m_ObjectHideFlags: 0
@@ -1979,6 +2007,65 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 393496072}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &400231058
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 400231059}
+  - component: {fileID: 400231061}
+  - component: {fileID: 400231060}
+  m_Layer: 0
+  m_Name: HarvestLocation
+  m_TagString: WaterBed
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &400231059
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 400231058}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1387696323}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &400231060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 400231058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a896f4dee86bfd4d8157864bc222cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 3
+--- !u!65 &400231061
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 400231058}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &467984006
 GameObject:
   m_ObjectHideFlags: 0
@@ -6151,6 +6238,38 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1386904747}
   m_CullTransparentMesh: 1
+--- !u!1 &1387696322
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1387696323}
+  m_Layer: 0
+  m_Name: Water
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1387696323
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1387696322}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -19.3, y: 0, z: 21.4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 400231059}
+  m_Father: {fileID: 0}
+  m_RootOrder: 19
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1403341356
 GameObject:
   m_ObjectHideFlags: 0
@@ -6374,8 +6493,8 @@ MonoBehaviour:
         m_MethodName: HireButtonPressed
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 192044, guid: 19682540d8a014522a319b1cf788aee2, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgument: {fileID: -4628508264679846762, guid: cfb57d0de9f5783409c1ccdbf4ff2aa6, type: 3}
+          m_ObjectArgumentAssemblyTypeName: Worker, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -6585,8 +6704,8 @@ MonoBehaviour:
         m_MethodName: HireButtonPressed
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 993509120937154544, guid: 4ab1f6c4172cd534688d8b7d7ee4122a, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgument: {fileID: 796547998413157491, guid: 4ab1f6c4172cd534688d8b7d7ee4122a, type: 3}
+          m_ObjectArgumentAssemblyTypeName: Worker, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -7466,8 +7585,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97787cf184d61ce4dbe939394aedc2cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hourlyIncome: 40
-  uraniumCost: 5
 --- !u!1001 &1698638931
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10449,7 +10566,7 @@ MonoBehaviour:
   m_Center: {x: 0, y: 2, z: 0}
   m_LayerMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 55
   m_UseGeometry: 0
   m_DefaultArea: 0
   m_IgnoreNavMeshAgent: 1

@@ -7,11 +7,13 @@ TagManager:
   - Worker
   - UraniumBed
   - Lab
+  - WoodBed
+  - WaterBed
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Worker
   - Water
   - UI
   - 
