@@ -16,14 +16,20 @@ using TMPro;
 public class ResourceUI : MonoBehaviour
 {
     [SerializeField]
+    private TMP_Text moneyText;
+    [SerializeField]
     private TMP_Text uraniumText;
     [SerializeField]
-    private TMP_Text moneyText;
+    private TMP_Text woodText;
+    [SerializeField]
+    private TMP_Text waterText;
 
     // Update is called once per frame
     void Update()
     {
-        uraniumText.text = $"Uranium: { GameState.Uranium.Value}";
         moneyText.text = $"Money: { GameState.Money.Value}";
+        uraniumText.text = $"Uranium: { GameState.Uranium.Value}";
+        woodText.text = $"Wood: { GameState.Wood.Value}";
+        waterText.text = $"Water: { GameState.Water.Value}";
     }
 }
