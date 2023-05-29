@@ -6,7 +6,8 @@ public class GameManager : MonoBehaviour
     public static Action OnGameOver;
     
     [SerializeField] private int hourlyIncome;
-    [SerializeField] private int uraniumCost;
+
+    [SerializeField] private float decayRate = 1;
 
     private void Start()
     {
@@ -17,19 +18,24 @@ public class GameManager : MonoBehaviour
         GameState.UraniumMeter = 100f;
         GameState.WoodMeter = 100f;
         GameState.WaterMeter = 100f;
+
+        var workers = GameObject.FindGameObjectsWithTag("Worker");
+
+        foreach (var worker in workers)
+        {
+            worker.GetComponent<Worker>().Init();
+        }
     }
 
 	private void OnEnable()
 	{
         TimeController.OnHourChanged += GenerateIncome;
-        TimeController.OnHourChanged += ExpendUranium;
         TimeController.OnHourChanged += SpendHourlyResource;
         TimeController.OnDayChanged += ResourceCostIncrease;
     }
 	private void OnDisable()
 	{
         TimeController.OnHourChanged -= GenerateIncome;
-        TimeController.OnHourChanged -= ExpendUranium;
         TimeController.OnHourChanged -= SpendHourlyResource;
         TimeController.OnDayChanged -= ResourceCostIncrease;
     }
@@ -38,14 +44,6 @@ public class GameManager : MonoBehaviour
 	{
         OnGameOver?.Invoke();
 	}
-    
-    private void ExpendUranium()
-    {
-        if (!GameState.Uranium.Subtract(uraniumCost))
-        {
-            EndGame();
-        }
-    }
 
     private void GenerateIncome()
     {
@@ -64,19 +62,19 @@ public class GameManager : MonoBehaviour
     private void SpendHourlyResource()
 	{
         // Uranium
-        GameState.UraniumMeter -= 5f;
+        GameState.UraniumMeter -= decayRate;
         while (GameState.Uranium.Subtract((int)GameState.UraniumTickRate) && GameState.UraniumMeter < 100f )
             GameState.UraniumMeter++;
 
         // Wood
-        GameState.WoodMeter -= 5f;
-        while (GameState.Uranium.Subtract((int)GameState.UraniumTickRate) && GameState.UraniumMeter < 100f)
-            GameState.UraniumMeter++;
+        GameState.WoodMeter -= decayRate;
+        while (GameState.Wood.Subtract((int)GameState.WoodTickRate) && GameState.WoodMeter < 100f)
+            GameState.WoodMeter++;
 
         // Water
-        GameState.WaterMeter -= 5f;
-        while (GameState.Uranium.Subtract((int)GameState.UraniumTickRate) && GameState.UraniumMeter < 100f)
-            GameState.UraniumMeter++;
+        GameState.WaterMeter -= decayRate;
+        while (GameState.Water.Subtract((int)GameState.WaterTickRate) && GameState.WaterMeter < 100f)
+            GameState.WaterMeter++;
 
         // Game Over conditional
         if (GameState.UraniumMeter <= 0 ||

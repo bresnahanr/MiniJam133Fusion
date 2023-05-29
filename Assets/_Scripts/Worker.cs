@@ -6,8 +6,6 @@ using UnityEngine;
 
 public class Worker : MonoBehaviour
 {
-    public event Action<Location> Embark;
-
     [Header("Worker Stats")]
     [SerializeField] private int baseCollectionAmount;
     [SerializeField] private float collectionModifier;
@@ -61,6 +59,12 @@ public class Worker : MonoBehaviour
         } else if (bag.ResourceType == ResourceType.Money)
         {
             GameState.Money.Add(bag.Amount);
+        } else if (bag.ResourceType == ResourceType.Water)
+        {
+            GameState.Water.Add(bag.Amount);
+        } else if (bag.ResourceType == ResourceType.Wood)
+        {
+            GameState.Wood.Add(bag.Amount);
         }
 
         bag.Amount = 0;
